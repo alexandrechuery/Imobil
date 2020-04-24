@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ImovelBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ImovelBDModelStoreContainer">
+    <EntitySet Name="Bairro" EntityType="ImovelBDModel.Store.Bairro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Imovel" EntityType="ImovelBDModel.Store.Imovel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Negocio" EntityType="ImovelBDModel.Store.Negocio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Proprietario" EntityType="ImovelBDModel.Store.Proprietario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoImovel" EntityType="ImovelBDModel.Store.TipoImovel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoNegocio" EntityType="ImovelBDModel.Store.TipoNegocio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="ImovelBDModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Imovel__IdBairro__398D8EEE" Association="ImovelBDModel.Store.FK__Imovel__IdBairro__398D8EEE">
+      <End Role="Bairro" EntitySet="Bairro" />
+      <End Role="Imovel" EntitySet="Imovel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Imovel__IdPropri__3A81B327" Association="ImovelBDModel.Store.FK__Imovel__IdPropri__3A81B327">
+      <End Role="Proprietario" EntitySet="Proprietario" />
+      <End Role="Imovel" EntitySet="Imovel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Imovel__IdTipoIm__38996AB5" Association="ImovelBDModel.Store.FK__Imovel__IdTipoIm__38996AB5">
+      <End Role="TipoImovel" EntitySet="TipoImovel" />
+      <End Role="Imovel" EntitySet="Imovel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Negocio__IdImove__3E52440B" Association="ImovelBDModel.Store.FK__Negocio__IdImove__3E52440B">
+      <End Role="Imovel" EntitySet="Imovel" />
+      <End Role="Negocio" EntitySet="Negocio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Negocio__IdTipoN__3F466844" Association="ImovelBDModel.Store.FK__Negocio__IdTipoN__3F466844">
+      <End Role="TipoNegocio" EntitySet="TipoNegocio" />
+      <End Role="Negocio" EntitySet="Negocio" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bairro">
+    <Key>
+      <PropertyRef Name="IdBairro" />
+    </Key>
+    <Property Name="IdBairro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeBairro" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Imovel">
+    <Key>
+      <PropertyRef Name="IdImovel" />
+    </Key>
+    <Property Name="IdImovel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vagas" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="Quartos" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="Suite" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="Area" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="ValorTotal" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="IdProprietario" Type="int" Nullable="false" />
+    <Property Name="IdBairro" Type="int" Nullable="false" />
+    <Property Name="IdTipoImovel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Negocio">
+    <Key>
+      <PropertyRef Name="IdImovel" />
+      <PropertyRef Name="IdTipoNegocio" />
+    </Key>
+    <Property Name="Valor" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="IdImovel" Type="int" Nullable="false" />
+    <Property Name="IdTipoNegocio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proprietario">
+    <Key>
+      <PropertyRef Name="IdProprietario" />
+    </Key>
+    <Property Name="IdProprietario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeProprietario" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="Telefone" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="N_Casa" Type="varchar" Nullable="false" MaxLength="4" />
+    <Property Name="CEP" Type="varchar" Nullable="false" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="TipoImovel">
+    <Key>
+      <PropertyRef Name="IdTipoImovel" />
+    </Key>
+    <Property Name="IdTipoImovel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeTipoImovel" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TipoNegocio">
+    <Key>
+      <PropertyRef Name="IdTipoNegocio" />
+    </Key>
+    <Property Name="IdTipoNegocio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeTipoNegocio" Type="varchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Imovel__IdBairro__398D8EEE">
+    <End Role="Bairro" Type="ImovelBDModel.Store.Bairro" Multiplicity="1" />
+    <End Role="Imovel" Type="ImovelBDModel.Store.Imovel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bairro">
+        <PropertyRef Name="IdBairro" />
+      </Principal>
+      <Dependent Role="Imovel">
+        <PropertyRef Name="IdBairro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Imovel__IdPropri__3A81B327">
+    <End Role="Proprietario" Type="ImovelBDModel.Store.Proprietario" Multiplicity="1" />
+    <End Role="Imovel" Type="ImovelBDModel.Store.Imovel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proprietario">
+        <PropertyRef Name="IdProprietario" />
+      </Principal>
+      <Dependent Role="Imovel">
+        <PropertyRef Name="IdProprietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Imovel__IdTipoIm__38996AB5">
+    <End Role="TipoImovel" Type="ImovelBDModel.Store.TipoImovel" Multiplicity="1" />
+    <End Role="Imovel" Type="ImovelBDModel.Store.Imovel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoImovel">
+        <PropertyRef Name="IdTipoImovel" />
+      </Principal>
+      <Dependent Role="Imovel">
+        <PropertyRef Name="IdTipoImovel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Negocio__IdImove__3E52440B">
+    <End Role="Imovel" Type="ImovelBDModel.Store.Imovel" Multiplicity="1" />
+    <End Role="Negocio" Type="ImovelBDModel.Store.Negocio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Imovel">
+        <PropertyRef Name="IdImovel" />
+      </Principal>
+      <Dependent Role="Negocio">
+        <PropertyRef Name="IdImovel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Negocio__IdTipoN__3F466844">
+    <End Role="TipoNegocio" Type="ImovelBDModel.Store.TipoNegocio" Multiplicity="1" />
+    <End Role="Negocio" Type="ImovelBDModel.Store.Negocio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNegocio">
+        <PropertyRef Name="IdTipoNegocio" />
+      </Principal>
+      <Dependent Role="Negocio">
+        <PropertyRef Name="IdTipoNegocio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,33 @@
+﻿@model ImobilidadeFinal.Models.TipoNegocio
+
+@{
+    ViewBag.Title = "Excluir Tipo de Negócio";
+}
+
+<h2>Excluir Tipo de Negócio</h2>
+
+<h3>Você tem certeza que pretende excluir isso?</h3>
+<div>
+    <h4>TipoNegocio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTipoNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeTipoNegocio)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ImobilidadeFinal.Models.TipoImovel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listagem de Tipos de Imóveis</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo Tipo de Imóvel", "Inserir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome do Tipo do Imóvel")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeTipoImovel)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id=item.IdTipoImovel }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.IdTipoImovel })
+        </td>
+    </tr>
+}
+
+</table>

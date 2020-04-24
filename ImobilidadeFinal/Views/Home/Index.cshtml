@@ -1,0 +1,155 @@
+﻿@{
+                /**/
+
+                ViewBag.Title = "Home Page";
+}
+<div class="titulo"><p class="lead">O site de imóveis pronto para te atender.</p></div>
+@Html.Carrossel()
+
+
+
+<div class="row">
+    <h3>Pesquisa por Negócio e Bairro</h3>
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Negócio</label>
+            @Html.DropDownList("Negocio");
+        </div>
+        <div class="form-group">
+            <label>Bairro</label>
+            @Html.DropDownList("Bairro");
+        </div>
+        <button type="button" id="pesquisar" class="btn btn-success">Pesquisar</button>
+        <br /><br />
+    </form>
+</div>
+<div class="row">
+    <div id="resultados"></div>
+</div>
+
+
+<div class="row">
+    <h3>Pesquisa por Negócio ou Bairro</h3>
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Negócio</label>
+            @Html.DropDownList("Negocio");
+        </div>
+        <div class="form-group">
+            <label>Bairro</label>
+            @Html.DropDownList("Bairro");
+        </div>
+        <button type="button" id="pesquisarNegocioOuBairro" class="btn btn-success">Pesquisar</button>
+        <br /><br />
+    </form>
+</div>
+<div class="row">
+    <div id="resultadosNegocioOuBairro"></div>
+</div>
+
+<div class="row">
+    <h3>Pesquisa de Imóvel por Tipo de Imóvel</h3>
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Tipo de Quarto</label>
+            @Html.DropDownList("TipoImovel");
+        </div>
+        <button type="button" id="pesquisarImoveis" class="btn btn-success">Pesquisar</button>
+        <br /><br />
+    </form>
+</div>
+<div class="row">
+    <div id="resultadosImoveis"></div>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("#pesquisar").on("click", function () {
+                var pesquisa = { IdBairro: $("#Bairro").val(), IdImovel: $("#Negocio").val() };
+
+                $.getJSON("/home/pesquisar", pesquisa, function (data) {
+                    var resultados = $("#resultados");
+                    resultados.empty();
+
+                    if (data.length == 0) {
+                        resultados.append('<div class="alert alert-warning ">Não encontramos nenhum imóveis nas condições prescritas...</div>');
+                        return false;
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        resultados.append('<div class="alert alert-success">' +
+                            '<h4><b>Valor: ' + data[i].ValorTotal + '</b></h4>' +
+                            '<p><b>Área: </b>' + data[i].Area + 'm²</p>' +
+                            '<p><b>Quartos: </b>' + data[i].Quartos + '</p>' +
+                            '<p><b>Vagas: </b>' + data[i].Vagas + '</p>' +
+                            '<p><b>Suites: </b>' + data[i].Suite + '</p>' +
+                            '<div>');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#pesquisarNegocioOuBairro").on("click", function () {
+                var pesquisa = { IdBairro: $("#Bairro").val(), IdImovel: $("#Negocio").val() };
+
+                $.getJSON("/home/pesquisarNegocioOuBairro", pesquisa, function (data) {
+                    var resultados = $("#resultadosNegocioOuBairro");
+                    resultados.empty();
+
+                    if (data.length == 0) {
+                        resultados.append('<div class="alert alert-warning ">Não encontramos nenhum imóveis nas condições prescritas...</div>');
+                        return false;
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        resultados.append('<div class="alert alert-success">' +
+                            '<h4><b>Valor: ' + data[i].ValorTotal + '</b></h4>' +
+                            '<p><b>Área: </b>' + data[i].Area + 'm²</p>' +
+                            '<p><b>Quartos: </b>' + data[i].Quartos + '</p>' +
+                            '<p><b>Vagas: </b>' + data[i].Vagas + '</p>' +
+                            '<p><b>Suites: </b>' + data[i].Suite + '</p>' +
+                            '<div>');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            $("#pesquisarImoveis").on("click", function () {
+                var pesquisa = { IdTipoImovel: $("#TipoImovel").val() };
+
+                $.getJSON("/home/pesquisarImoveis", pesquisa, function (data) {
+                    var resultados = $("#resultadosImoveis");
+                    resultados.empty();
+
+                    if (data.length == 0) {
+                        resultados.append('<div class="alert alert-warning ">Não encontramos nenhum imóveis nas condições prescritas...</div>');
+                        return false;
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        resultados.append('<div class="alert alert-success">' +
+                            '<h4><b>Valor: ' + data[i].ValorTotal + '</b></h4>' +
+                            '<p><b>Área: </b>' + data[i].Area + 'm²</p>' +
+                            '<p><b>Quartos: </b>' + data[i].Quartos + '</p>' +
+                            '<p><b>Vagas: </b>' + data[i].Vagas + '</p>' +
+                            '<p><b>Suites: </b>' + data[i].Suite + '</p>' +
+                            '<div>');
+                    }
+                });
+            });
+        });
+
+    </script>
+}
+
+    </script>
+}

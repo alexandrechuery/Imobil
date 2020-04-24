@@ -1,0 +1,89 @@
+﻿@model ImobilidadeFinal.Models.Imovel
+
+@{
+    ViewBag.Title = "Exclusão de Imóveis";
+}
+
+<h2>Exclusão de Imóveis</h2>
+
+<h3>Você tem certeza que deseja excluir este item?</h3>
+<div>
+    <h4>Imovel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vagas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vagas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quartos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quartos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro.NomeBairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bairro.NomeBairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprietario.NomeProprietario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprietario.NomeProprietario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoImovel.NomeTipoImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoImovel.NomeTipoImovel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

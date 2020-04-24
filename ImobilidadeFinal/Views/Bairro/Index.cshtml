@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ImobilidadeFinal.Models.Bairro>
+
+@{
+    ViewBag.Title = "Bairros";
+}
+
+<h2>Bairros</h2>
+
+<p>
+    @Html.ActionLink("Inserir Novo Bairro", "Inserir")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ID do Bairro")
+        </th>
+        <th>
+            @Html.DisplayName("Nome do Bairro")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeBairro)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Alterar", new { id = item.IdBairro }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.IdBairro })
+            </td>
+        </tr>
+    }
+
+</table>

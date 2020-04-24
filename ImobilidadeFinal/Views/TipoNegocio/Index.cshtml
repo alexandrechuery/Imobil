@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ImobilidadeFinal.Models.TipoNegocio>
+
+@{
+    ViewBag.Title = "Listagem de Tipos de Negócio";
+}
+
+<h2>Listagem de Tipos de Negócio</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo Tipo de Negócio", "Inserir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ID do Tipo Negócio")
+        </th>
+        <th>
+            @Html.DisplayName("Nome do Tipo de Negócio")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTipoNegocio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeTipoNegocio)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id = item.IdTipoNegocio }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = item.IdTipoNegocio })
+        </td>
+    </tr>
+    }
+
+</table>

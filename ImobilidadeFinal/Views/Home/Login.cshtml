@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IMOBILI - @ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css" media="screen" />
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive")" type="text/javascript"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="logo" href="/"><div class="divlogo"></div></a>
+               
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="alert alert-success">
+                <div class="container">
+                    <div>
+                        <form id="form-login" name="form-login" method="get" action="javascript:function()">
+                            <p>
+                                <label for="txtLogin">Login do Usuário</label>&nbsp;
+                                <input type="text" id="txtLogin" name="txtLogin" />
+                            </p>
+                            <p>
+                                <label for="txtSenha">Senha</label>&nbsp;
+                                <input type="password" id="txtSenha" name="txtSenha" />&nbsp;
+                            </p>
+                            <p><a id="botao-entrar" class="btn btn-success"> Entrar </a></p>
+                        </form><br />
+                        <label id="status" class="alert alert-warning"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Autenticacao.js")"></script>
+</body>
+</html>

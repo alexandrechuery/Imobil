@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68eb8769ac46406a9fa49bf73c475c6e" Name="Diagram1">
+        <EntityTypeShape EntityType="ImovelBDModel.Bairro" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImovelBDModel.Imovel" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImovelBDModel.Negocio" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImovelBDModel.Proprietario" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImovelBDModel.TipoImovel" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImovelBDModel.TipoNegocio" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ImovelBDModel.FK__Imovel__IdBairro__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ImovelBDModel.FK__Imovel__IdPropri__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ImovelBDModel.FK__Imovel__IdTipoIm__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="ImovelBDModel.FK__Negocio__IdImove__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ImovelBDModel.FK__Negocio__IdTipoN__3F466844" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ImovelBDModel.Usuario" Width="1.5" PointX="7.25" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

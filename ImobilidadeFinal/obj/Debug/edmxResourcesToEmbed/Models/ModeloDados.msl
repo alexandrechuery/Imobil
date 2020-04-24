@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ImovelBDModelStoreContainer" CdmEntityContainer="ImovelBDEntities">
+    <EntitySetMapping Name="Bairro">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.Bairro)">
+        <MappingFragment StoreEntitySet="Bairro">
+          <ScalarProperty Name="IdBairro" ColumnName="IdBairro" />
+          <ScalarProperty Name="NomeBairro" ColumnName="NomeBairro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imovel">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.Imovel)">
+        <MappingFragment StoreEntitySet="Imovel">
+          <ScalarProperty Name="IdImovel" ColumnName="IdImovel" />
+          <ScalarProperty Name="Vagas" ColumnName="Vagas" />
+          <ScalarProperty Name="Quartos" ColumnName="Quartos" />
+          <ScalarProperty Name="Suite" ColumnName="Suite" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="IdProprietario" ColumnName="IdProprietario" />
+          <ScalarProperty Name="IdBairro" ColumnName="IdBairro" />
+          <ScalarProperty Name="IdTipoImovel" ColumnName="IdTipoImovel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Negocio">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.Negocio)">
+        <MappingFragment StoreEntitySet="Negocio">
+          <ScalarProperty Name="IdImovel" ColumnName="IdImovel" />
+          <ScalarProperty Name="IdTipoNegocio" ColumnName="IdTipoNegocio" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proprietario">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.Proprietario)">
+        <MappingFragment StoreEntitySet="Proprietario">
+          <ScalarProperty Name="IdProprietario" ColumnName="IdProprietario" />
+          <ScalarProperty Name="NomeProprietario" ColumnName="NomeProprietario" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="N_Casa" ColumnName="N_Casa" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoImovel">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.TipoImovel)">
+        <MappingFragment StoreEntitySet="TipoImovel">
+          <ScalarProperty Name="IdTipoImovel" ColumnName="IdTipoImovel" />
+          <ScalarProperty Name="NomeTipoImovel" ColumnName="NomeTipoImovel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNegocio">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.TipoNegocio)">
+        <MappingFragment StoreEntitySet="TipoNegocio">
+          <ScalarProperty Name="IdTipoNegocio" ColumnName="IdTipoNegocio" />
+          <ScalarProperty Name="NomeTipoNegocio" ColumnName="NomeTipoNegocio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="IsTypeOf(ImovelBDModel.Usuario)">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

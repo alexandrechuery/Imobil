@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <link rel=" icon" type="image/x-icon" href="~/Images/icone_verde.ico" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="logo" href="/"><div class="divlogo"></div></a>
+                <!-- @Html.ActionLink("IMOBILI", "Index", "Home", new { area = "" }, new { @class = "menu" })-->
+                @Html.ActionLink("Bairro", "Index", "Bairro", new { area = "" }, new { @class = "menu" })
+                @Html.ActionLink("Imovel", "Index", "Imovel", new { area = "" }, new { @class = "menu" })
+                @Html.ActionLink("Negocio", "Index", "Negocio", new { area = "" }, new { @class = "menu" })
+                @Html.ActionLink("Proprietario", "Index", "Proprietario", new { area = "" }, new { @class = "menu" })
+                @Html.ActionLink("Tipo Imóvel", "Index", "TipoImovel", new { area = "" }, new { @class = "menu" })
+                @Html.ActionLink("Tipo Negócio", "Index", "TipoNegocio", new { area = "" }, new { @class = "menu" })
+
+
+            </div>
+            <a id="botao-sair" style="display:none"><button class="login">Sair</button></a>
+        </div>
+    </div>
+    
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Todos os direitos reservados. </p>
+        </footer>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("/Scripts/Autenticacao.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ImobilidadeFinal.Models.Proprietario>
+
+@{
+    ViewBag.Title = "Proprietários";
+}
+
+<h2>Proprietários</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Novo Proprietário", "Inserir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome do Proprietário")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayName("Número da Casa")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CEP)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeProprietario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N_Casa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id=item.IdProprietario }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.IdProprietario })
+        </td>
+    </tr>
+}
+
+</table>

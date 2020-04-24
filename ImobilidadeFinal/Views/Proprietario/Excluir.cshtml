@@ -1,0 +1,57 @@
+﻿@model ImobilidadeFinal.Models.Proprietario
+
+@{
+    ViewBag.Title = "Exclusão de Proprietário";
+}
+
+<h2>Exclusão de Proprietário</h2>
+
+<h3>Você tem certeza que pretende excluir isso?</h3>
+<div>
+    <h4>Proprietario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProprietario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeProprietario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.N_Casa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.N_Casa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CEP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>
